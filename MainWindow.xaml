@@ -1,0 +1,132 @@
+﻿using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace TICTACTOE
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        private string value = "x";
+        private int xWins = 0;
+        private int oWins = 0;
+        
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void RestartClick(object sender, RoutedEventArgs e)
+        {
+            ResetButtons();
+            xWins = 0;
+            oWins = 0;
+            lbxwins.Content = "X: 0";
+            lbowins.Content = "O: 0";
+        }
+
+        private void ExitClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btClick(object sender, RoutedEventArgs e)
+        {
+            Button bt = (Button)sender;
+            bt.Foreground = Brushes.Black;
+            bt.IsEnabled = false;
+            
+
+            if (isWin(btA1, btA2, btA3)) GameOver(btA1.Content.ToString());
+            if (isWin(btA4, btA5, btA6)) GameOver(btA4.Content.ToString());
+            if (isWin(btA7, btA8, btA9)) GameOver(btA7.Content.ToString());
+            if (isWin(btA1, btA4, btA7)) GameOver(btA1.Content.ToString());
+            if (isWin(btA2, btA5, btA8)) GameOver(btA2.Content.ToString());
+            if (isWin(btA3, btA6, btA9)) GameOver(btA3.Content.ToString());
+            if (isWin(btA1, btA5, btA9)) GameOver(btA1.Content.ToString());
+            if (isWin(btA3, btA5, btA7)) GameOver(btA3.Content.ToString());
+
+            if (!btA1.IsEnabled && !btA2.IsEnabled && !btA3.IsEnabled &&
+                !btA4.IsEnabled && !btA5.IsEnabled && !btA6.IsEnabled &&
+                !btA7.IsEnabled && !btA8.IsEnabled && !btA9.IsEnabled)
+                GameOver("");
+
+            value = value == "X" ? "O" : "X";
+        }
+        private void GameOver(string who)
+
+        {
+            if (lbWinner.Visibility == Visibility.Visible) return;
+            if (who == "X")
+            {
+                lbWinner.Content = "игрок х выйграл";
+                lbxwins.Content = $"x: {++xWins}";
+                
+            }
+            else if (who == "O")
+            {
+                lbWinner.Content = "игрок o выйграл";
+                lbowins.Content = $"O: {++oWins}";
+                 
+            }
+            else lbWinner.Content = "нет победителя";
+            lbWinner.Visibility = Visibility.Visible;
+            Wait1secandrestart();
+        }
+
+        private async void Wait1secandrestart()
+        {
+            await Task.Delay(1000);
+            lbWinner.Visibility = Visibility.Hidden;
+            ResetButtons();
+        }
+
+        private void ResetButtons()
+        {
+            ResetButtons(btA1);
+            ResetButtons(btA2);
+            ResetButtons(btA3);
+            ResetButtons(btA4);
+            ResetButtons(btA5);
+            ResetButtons(btA6);
+            ResetButtons(btA7);
+            ResetButtons(btA8);
+            ResetButtons(btA9);
+
+        }
+        private void ResetButtons(Button bt)
+        {
+            bt.Content = "";
+            bt.IsEnabled = true;
+ 
+        
+        
+        }
+        private bool isWin(Button bt1, Button bt2, Button bt3) =>
+            !bt1.IsEnabled && bt1.Content == bt2.Content && bt1.Content == bt3.Content;
+
+        private void btEnter(object sender, RoutedEventArgs e)
+        {
+            Button bt = (Button)sender;
+            bt.Content = value;
+        }
+
+        private void btLeave(object sender, RoutedEventArgs e)
+        {
+            Button bt = (Button)sender;
+            if (bt.IsEnabled)
+                bt.Content = "";
+        }
+
+
+    }
+}

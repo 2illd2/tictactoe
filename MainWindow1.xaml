@@ -1,0 +1,30 @@
+﻿<Window x:Class="TICTACTOE.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TICTACTOE"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="335" Width="256" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <Menu Height="19" VerticalAlignment="Top">
+            <MenuItem Header="_Game">
+                <MenuItem Header="_Restart" Click="RestartClick"/>
+                <MenuItem Header="_Exit" Click="ExitClick"/>
+            </MenuItem>
+        </Menu>
+        <Button x:Name="btA1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" IsTabStop="False" Focusable="False" FontSize="36" FontFamily="Adobe Gotic Std B" Click="btClick" MouseEnter="btEnter" MouseLeave="btLeave"  Foreground="Black" Margin="0,24,0,0"/>
+        <Button x:Name="btA2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" IsTabStop="False" Focusable="False" FontSize="36" FontFamily="Adobe Gotic Std B" Click="btClick" MouseEnter="btEnter" MouseLeave="btLeave" Foreground="Black" Margin="80,24,0,0"/>
+        <Button x:Name="btA3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" IsTabStop="False" Focusable="False" FontSize="36" FontFamily="Adobe Gotic Std B" Click="btClick" MouseEnter="btEnter" MouseLeave="btLeave"  Foreground="Black" Margin="160,24,0,0"/>
+        <Button x:Name="btA4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" IsTabStop="False" Focusable="False" FontSize="36" FontFamily="Adobe Gotic Std B" Click="btClick" MouseEnter="btEnter" MouseLeave="btLeave"  Foreground="Black" Margin="0,104,0,0"/>
+        <Button x:Name="btA5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" IsTabStop="False" Focusable="False" FontSize="36" FontFamily="Adobe Gotic Std B" Click="btClick" MouseEnter="btEnter" MouseLeave="btLeave"  Foreground="Black" Margin="80,104,0,0"/>
+        <Button x:Name="btA6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" IsTabStop="False" Focusable="False" FontSize="36" FontFamily="Adobe Gotic Std B" Click="btClick" MouseEnter="btEnter" MouseLeave="btLeave"  Foreground="Black" Margin="160,104,0,0"/>
+        <Button x:Name="btA7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" IsTabStop="False" Focusable="False" FontSize="36" FontFamily="Adobe Gotic Std B" Click="btClick" MouseEnter="btEnter" MouseLeave="btLeave"  Foreground="Black" Margin="0,184,0,0"/>
+        <Button x:Name="btA8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" IsTabStop="False" Focusable="False" FontSize="36" FontFamily="Adobe Gotic Std B" Click="btClick" MouseEnter="btEnter" MouseLeave="btLeave"  Foreground="Black" Margin="80,184,0,0"/>
+        <Button x:Name="btA9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" IsTabStop="False" Focusable="False" FontSize="36" FontFamily="Adobe Gotic Std B" Click="btClick" MouseEnter="btEnter" MouseLeave="btLeave"  Foreground="Black" Margin="160,184,0,0"/>
+        <Label x:Name="lbxwins" Content="X: 0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,264,0,0" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lbowins" Content="0: 0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="53,264,0,0" FontSize="16" FontWeight="Bold"/>
+
+        <Label x:Name="lbWinner" Content=" Игрок х выйграл" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,19,0,0" FontSize="29" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="240" Height="240" Visibility="Hidden" />
+    </Grid>
+</Window>
